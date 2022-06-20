@@ -8,11 +8,11 @@ function CourseGoalList(props) {
         props.getTaskId(data);
     };
   return (
-    <div className="goal-list">
+    <ul className="goal-list">
       {props.eventList.map((item) => (
         <CourseGoalItem key={item.id} task={item.task} id={item.id} getTaskID={deleteHandler} />
       ))}
-    </div>
+    </ul>
   );
 }
 export default CourseGoalList;
