@@ -1,22 +1,18 @@
-import React from 'react';
+import React from "react";
+import CourseGoalItem from "../CourseGoalItem/GoalCourseItem";
+import "./CourseGoalList.css";
 
-import CourseGoalItem from '../CourseGoalItem/CourseGoalItem';
-import './CourseGoalList.css';
+function CourseGoalList(props) {
 
-const CourseGoalList = props => {
+    const deleteHandler = (data) =>{
+        props.getTaskId(data);
+    };
   return (
-    <ul className="goal-list">
-      {props.items.map(goal => (
-        <CourseGoalItem
-          key={goal.id}
-          id={goal.id}
-          onDelete={props.onDeleteItem}
-        >
-          {goal.text}
-        </CourseGoalItem>
+    <div className="goal-list">
+      {props.eventList.map((item) => (
+        <CourseGoalItem key={item.id} task={item.task} id={item.id} getTaskID={deleteHandler} />
       ))}
-    </ul>
+    </div>
   );
-};
-
+}
 export default CourseGoalList;
